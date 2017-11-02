@@ -12,32 +12,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
 
-    var nameIndex = 0;
     
     let nameBank = [
-        ("Ready?"),("Kobe"), ("Nash"), ("Jordan"), ("Durant"), ("Curry"), ("Spiderman")
+        ("Kobe"), ("Nash"), ("Jordan"), ("Durant"), ("Curry"), ("Spiderman"), ("Ethan"),("Emerson")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        updateUI()
     }
     
-    func updateUI(){
-        nameLabel.text = nameBank[nameIndex]
-    }
-
-
 
     @IBAction func callButtonPressed(_ sender: Any){
-        if nameIndex != nameBank.count - 1 {
-            nameIndex += 1
-        }else{
-            nameIndex = 0
-        }
-        updateUI()
+        let coldCall = Int(arc4random_uniform(UInt32(nameBank.count)))
+        nameLabel.text = nameBank[coldCall]
     }
+    
     
     
     override func didReceiveMemoryWarning() {
